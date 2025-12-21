@@ -3,7 +3,7 @@ package com.dsa.basics.oops;
 import com.dsa.utils.ArrayUtils;
 
 class DynamicArray {
-    private int[] array;
+    private Integer[] array;
     private int nextIndex = 0;
 
     DynamicArray() {
@@ -43,7 +43,7 @@ class DynamicArray {
         if (!this.isEmpty()) {
             this.nextIndex--;
             int n = this.array[this.nextIndex];
-            this.array[this.nextIndex] = 0;
+            this.array[this.nextIndex] = null;
             return n;
         }
 
@@ -56,15 +56,15 @@ class DynamicArray {
 
     private void setSize(int n) {
         if (array == null) {
-            this.array = new int[n];
+            this.array = new Integer[n];
         } else {
-            int[] newArr = new int[n];
+            Integer[] newArr = new Integer[n];
             copyElements(this.array, newArr);
             this.array = newArr;
         }
     }
 
-    private void copyElements(int[] fromArray, int[] toArray) {
+    private void copyElements(Integer[] fromArray, Integer[] toArray) {
         for (int i = 0; i < fromArray.length; i++) {
             toArray[i] = fromArray[i];
         }
@@ -73,14 +73,14 @@ class DynamicArray {
     /*
      * getter
      */
-    public int[] getArray() {
+    public Integer[] getArray() {
         return this.array;
     }
 }
 
 public class DynamicArrayUse {
     public static void main(String[] args) {
-        DynamicArray d = new DynamicArray(3);
+        DynamicArray d = new DynamicArray(5);
 
         for (int i = 0; i < 8; i++) {
             d.add(i + 10);
@@ -96,6 +96,7 @@ public class DynamicArrayUse {
         while (!d.isEmpty()) {
             System.err.println(d.removeLast());
             System.err.println("size = " + d.size());
+            ArrayUtils.printArray(d.getArray());
         }
     }
 }
