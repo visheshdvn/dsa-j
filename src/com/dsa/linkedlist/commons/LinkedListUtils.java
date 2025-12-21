@@ -83,6 +83,13 @@ public class LinkedListUtils<T> {
         return length;
     }
 
+    /**
+     * Returns the node at a given index in the linked list.
+     * 
+     * @param head the head of the linked list
+     * @param index the index of the node to return
+     * @return the node at the given index, or null if the index is out of bounds
+     */
     public Node<T> getNodeAtIndex(Node<T> head, int index) {
         if (head == null)
             return null;
