@@ -28,7 +28,6 @@ class Fraction {
     }
 }
 
-
 public class FractionUse {
     public static void main(String[] args) {
         Fraction f1 = new Fraction(10, 15);
@@ -36,5 +35,4 @@ public class FractionUse {
 
         System.out.println(f1.getNumerator() + t.testingVar);
     }
-    
 }
