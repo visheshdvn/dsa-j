@@ -106,4 +106,41 @@ public class LinkedListUtils<T> {
 
         return node;
     }
+
+    /**
+     * Inserts a new node with the given data at the specified index in the linked list.
+     * 
+     * @param head the head of the linked list
+     * @param data the data to insert
+     * @param index the index at which to insert the new node
+     * @return the head of the linked list (may be updated if inserting at index 0)
+     */
+    public Node<T> insert(Node<T> head, T data, int index) {
+        if (index == 0) {
+            Node<T> node = new Node<T>(data);
+            node.setNext(head);
+            head = node;
+            return head;
+        }
+
+        if(head == null) {
+            return null;
+        }
+
+        int i = 0;
+        Node<T> temp = head;
+        while (i < index-1 && temp != null) {
+            i++;
+            temp = temp.next();
+        }
+
+        if (temp == null) {
+            return head;
+        }
+
+        Node<T> node = new Node<T>(data);
+        node.setNext(temp.next());
+        temp.setNext(node);
+        return head;
+    }
 }

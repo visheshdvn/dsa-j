@@ -17,11 +17,16 @@ public class LinkedList<T> {
      */
 
     public Node<T> getNodeAtIndex(int index) {
-        return this.myUtils.getNodeAtIndex(head, index);
+        return myUtils.getNodeAtIndex(this.head, index);
     }
 
     public void print() {
-        this.myUtils.printLL(this.head);
+        myUtils.printLL(this.head);
+    }
+
+    public Node<T> insert(T data, int index) {
+        this.head = myUtils.insert(this.head, data, index);
+        return this.head;
     }
 
     public Integer getLength() {
@@ -41,5 +46,9 @@ public class LinkedList<T> {
         Node<T> head = myUtils.buildLLFromArray(array);
         this.head = head;
         return head;
+    }
+
+    public void setHead(Node<T> head) {
+        this.head = head;
     }
 }
