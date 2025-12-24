@@ -33,6 +33,11 @@ public class LinkedList<T> {
         return myUtils.getLength(head);
     }
 
+    public Node<T> deleteNodeAtIndex(int index) {
+        this.head = myUtils.deleteNodeAtIndex(this.head, index);
+        return head;
+    }
+
     /*
      * builder methods
      */

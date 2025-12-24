@@ -86,8 +86,8 @@ public class LinkedListUtils<T> {
     /**
      * Returns the node at a given index in the linked list.
      * 
-     * @param head the head of the linked list
-     * @param index the index of the node to return
+     * @param head  the head of the linked list
+     * @param index  the index of the node to return
      * @return the node at the given index, or null if the index is out of bounds
      */
     public Node<T> getNodeAtIndex(Node<T> head, int index) {
@@ -108,10 +108,11 @@ public class LinkedListUtils<T> {
     }
 
     /**
-     * Inserts a new node with the given data at the specified index in the linked list.
+     * Inserts a new node with the given data at the specified index in the linked
+     * list.
      * 
-     * @param head the head of the linked list
-     * @param data the data to insert
+     * @param head  the head of the linked list
+     * @param data  the data to insert
      * @param index the index at which to insert the new node
      * @return the head of the linked list (may be updated if inserting at index 0)
      */
@@ -123,13 +124,13 @@ public class LinkedListUtils<T> {
             return head;
         }
 
-        if(head == null) {
+        if (head == null) {
             return null;
         }
 
         int i = 0;
         Node<T> temp = head;
-        while (i < index-1 && temp != null) {
+        while (i < index - 1 && temp != null) {
             i++;
             temp = temp.next();
         }
@@ -141,6 +142,36 @@ public class LinkedListUtils<T> {
         Node<T> node = new Node<T>(data);
         node.setNext(temp.next());
         temp.setNext(node);
+        return head;
+    }
+
+    /**
+     * Deletes the node at the specified index in the linked list.
+     * 
+     * @param head the head of the linked list
+     * @param index the index of the node to delete
+     * @return the head of the linked list (may be updated if deleting at index 0)
+     */
+    public Node<T> deleteNodeAtIndex(Node<T> head, int index) {
+        int length = getLength(head);
+
+        if (head == null || index >= length) {
+            return head;
+        }
+
+        if (index == 0) {
+            head = head.next();
+            return head;
+        }
+
+        Node<T> node = head;
+        for (int i = 0; i < index - 1; i++) {
+            node = node.next();
+        }
+
+        Node<T> del = node.next();
+        node.setNext(del.next());
+
         return head;
     }
 }

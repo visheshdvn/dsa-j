@@ -43,5 +43,11 @@ public class LinkedListUse {
         head = utils.insert(head, 98, 0);
         ll.setHead(head);
         utils.printLL(head); // or ll.print()
+
+        // delete operation testing
+        int delIndex = SystemUtils.takeIntInput("Enter index to delete: ");
+        head = ll.deleteNodeAtIndex(delIndex);
+        ll.setHead(head);
+        ll.print();
     }
 }
