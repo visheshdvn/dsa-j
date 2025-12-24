@@ -23,6 +23,13 @@ public class LinkedListUse {
         System.out.println("data : " + (node1 == null ? null : node1.getData()));
     }
 
+    private static void deleteNodeAtIndex() {
+        // delete operation testing
+        int delIndex = SystemUtils.takeIntInput("Enter index to delete: ");
+        ll.deleteNodeAtIndex(delIndex);
+        ll.print();
+    }
+
     public static void main(String[] args) {
 
         // LinkedList<Integer> ll = new LinkedList<>();
@@ -44,10 +51,6 @@ public class LinkedListUse {
         ll.setHead(head);
         utils.printLL(head); // or ll.print()
 
-        // delete operation testing
-        int delIndex = SystemUtils.takeIntInput("Enter index to delete: ");
-        head = ll.deleteNodeAtIndex(delIndex);
-        ll.setHead(head);
-        ll.print();
+        deleteNodeAtIndex();
     }
 }

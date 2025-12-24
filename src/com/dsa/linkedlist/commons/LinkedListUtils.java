@@ -153,9 +153,7 @@ public class LinkedListUtils<T> {
      * @return the head of the linked list (may be updated if deleting at index 0)
      */
     public Node<T> deleteNodeAtIndex(Node<T> head, int index) {
-        int length = getLength(head);
-
-        if (head == null || index >= length) {
+        if (head == null) {
             return head;
         }
 
@@ -165,12 +163,15 @@ public class LinkedListUtils<T> {
         }
 
         Node<T> node = head;
-        for (int i = 0; i < index - 1; i++) {
+        for (int i = 0; i < index - 1 && node != null; i++) {
             node = node.next();
         }
 
-        Node<T> del = node.next();
-        node.setNext(del.next());
+        if(node == null || node.next() == null) {
+            return head;
+        }
+        
+        node.setNext(node.next().next());
 
         return head;
     }
