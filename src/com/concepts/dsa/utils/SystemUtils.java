@@ -1,4 +1,4 @@
-package com.dsa.utils;
+package com.concepts.dsa.utils;
 
 import java.util.Scanner;
 

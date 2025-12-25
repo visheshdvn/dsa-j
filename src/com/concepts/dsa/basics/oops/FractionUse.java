@@ -1,6 +1,6 @@
-package com.dsa.basics.oops;
+package com.concepts.dsa.basics.oops;
 
-import com.dsa.utils.Test;
+import com.concepts.dsa.utils.Test;
 
 class Fraction {
     private int numerator;

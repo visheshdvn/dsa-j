@@ -1,6 +1,6 @@
-package com.dsa.basics.oops;
+package com.concepts.dsa.basics.oops;
 
-import com.dsa.utils.ArrayUtils;
+import com.concepts.dsa.utils.ArrayUtils;
 
 class DynamicArray {
     private Integer[] array;
