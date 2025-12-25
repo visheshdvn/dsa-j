@@ -1,4 +1,4 @@
-package com.concepts.dsa.linkedlist.commons;
+package com.dsaj.concepts.dsa.linkedlist.commons;
 
 public class Node<T> {
     private T data;

@@ -1,4 +1,4 @@
-package com.problems.leetcode.commons;
+package com.dsaj.problems.leetcode.commons;
 
 public class LinkedListCommons {
     public static class ListNode {

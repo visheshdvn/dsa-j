@@ -1,9 +1,9 @@
-package com.concepts.dsa.linkedlist;
+package com.dsaj.concepts.dsa.linkedlist;
 
-import com.concepts.dsa.linkedlist.commons.LinkedList;
-import com.concepts.dsa.linkedlist.commons.LinkedListUtils;
-import com.concepts.dsa.linkedlist.commons.Node;
-import com.concepts.dsa.utils.SystemUtils;
+import com.dsaj.concepts.dsa.linkedlist.commons.LinkedList;
+import com.dsaj.concepts.dsa.linkedlist.commons.LinkedListUtils;
+import com.dsaj.concepts.dsa.linkedlist.commons.Node;
+import com.dsaj.concepts.dsa.utils.SystemUtils;
 
 public class LinkedListUse {
 

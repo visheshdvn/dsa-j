@@ -2,11 +2,11 @@
  * Leetcode tags: LinkedList, Two Pointers
  */
 
-package com.problems.leetcode.linkedlist;
+package com.dsaj.problems.leetcode.linkedlist;
 
-import com.concepts.dsa.utils.SystemUtils;
-import com.problems.leetcode.commons.LinkedListCommons.LinkedListUtils;
-import com.problems.leetcode.commons.LinkedListCommons.ListNode;
+import com.dsaj.concepts.dsa.utils.SystemUtils;
+import com.dsaj.problems.leetcode.commons.LinkedListCommons.LinkedListUtils;
+import com.dsaj.problems.leetcode.commons.LinkedListCommons.ListNode;
 
 class LC876Solution {
     public ListNode middleNode(ListNode head) {
