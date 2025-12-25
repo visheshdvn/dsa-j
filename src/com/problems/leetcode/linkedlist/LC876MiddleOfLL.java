@@ -8,7 +8,7 @@ import com.concepts.dsa.utils.SystemUtils;
 import com.problems.leetcode.commons.LinkedListCommons.LinkedListUtils;
 import com.problems.leetcode.commons.LinkedListCommons.ListNode;
 
-class Solution {
+class LC876Solution {
     public ListNode middleNode(ListNode head) {
         if (head == null) {
             return head;
@@ -33,7 +33,7 @@ public class LC876MiddleOfLL {
 
     public static void main(String[] args) {
 
-        Solution solution = new Solution();
+        LC876Solution solution = new LC876Solution();
 
         Integer[] arr = SystemUtils.takeIntegerArrayInput("Enter array values: ");
 
