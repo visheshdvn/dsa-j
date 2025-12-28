@@ -45,5 +45,17 @@ public class LinkedListCommons {
             }
             System.err.println("null");
         }
+
+        public static int getLength(ListNode head) {
+            ListNode node = head;
+            int length = 0;
+
+            while (node != null) {
+                length++;
+                node = node.next;
+            }
+
+            return length;
+        }
     }
 }
