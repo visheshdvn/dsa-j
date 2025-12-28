@@ -4,7 +4,7 @@ import com.dsaj.concepts.dsa.utils.SystemUtils;
 import com.dsaj.problems.leetcode.commons.LinkedListCommons.LinkedListUtils;
 import com.dsaj.problems.leetcode.commons.LinkedListCommons.ListNode;
 
-class LC148SortLLSolution {
+class LC148Solution {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode head = new ListNode(-1);
@@ -67,7 +67,7 @@ class LC148SortLLSolution {
 
 public class LC148SortLL {
     public static void main(String[] args) {
-        LC148SortLLSolution solution = new LC148SortLLSolution();
+        LC148Solution solution = new LC148Solution();
 
         // construct first LL
         Integer[] arr = SystemUtils.takeIntegerArrayInput("Enter first LL values: ");
