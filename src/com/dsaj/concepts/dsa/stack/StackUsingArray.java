@@ -22,7 +22,7 @@ public class StackUsingArray<T> {
 
     public T peek() {
         if (isEmpty()) {
-            throw new IllegalStateException("Stack is empty");
+            return null;
         }
         return array.get(array.size() - 1);
     }
