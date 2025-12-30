@@ -1,6 +1,6 @@
-package com.dsaj.concepts.dsa.stack.use;
+package com.dsaj.concepts.dsa.stackandqueue.use;
 
-import com.dsaj.concepts.dsa.stack.StackUsingArray;
+import com.dsaj.concepts.dsa.stackandqueue.StackUsingArray;
 
 public class StackUsingLLUse {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.dsaj.concepts.dsa.stack;
+package com.dsaj.concepts.dsa.stackandqueue;
 
 import com.dsaj.concepts.dsa.linkedlist.commons.LinkedList;
 
