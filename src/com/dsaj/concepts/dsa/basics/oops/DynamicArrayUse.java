@@ -1,53 +1,60 @@
 package com.dsaj.concepts.dsa.basics.oops;
 
+import java.lang.reflect.Array;
+
 import com.dsaj.concepts.dsa.utils.ArrayUtils;
 
-class DynamicArray {
-    private Integer[] array;
+class DynamicArray<T> {
+    private T[] array;
     private int nextIndex = 0;
+    private Class<T> clazz;
 
-    DynamicArray() {
+    public DynamicArray(Class<T> clazz) {
+        this.clazz = clazz;
+        this.array = (T[]) Array.newInstance(clazz, 10);
         setSize(10);
     }
 
-    DynamicArray(int n) {
-        setSize(n);
+    public DynamicArray(Class<T> clazz, int size) {
+        this.clazz = clazz;
+        this.array = (T[]) Array.newInstance(clazz, size);
+        setSize(size);
     }
 
     public int size() {
         return this.nextIndex;
     }
 
-    public void add(int n) {
+    public void add(T n) {
         if (this.nextIndex >= this.array.length) {
             setSize(2 * this.array.length);
         }
         array[nextIndex++] = n;
     }
 
-    public void set(int index, int value) {
+    public void set(int index, T value) {
         if (index < this.array.length && index >= 0) {
             array[index] = value;
         }
     }
 
-    public int get(int index) {
-        if (index < this.size() && index >= 0) {
+    public T get(int index) {
+        if (index < this.nextIndex && index >= 0) {
             return array[index];
         }
 
-        return Integer.MIN_VALUE;
+        return null;
     }
 
-    public int removeLast() {
+    public T removeLast() {
         if (!this.isEmpty()) {
             this.nextIndex--;
-            int n = this.array[this.nextIndex];
+            T n = this.array[this.nextIndex];
             this.array[this.nextIndex] = null;
             return n;
         }
 
-        return Integer.MIN_VALUE;
+        return null;
     }
 
     public boolean isEmpty() {
@@ -56,15 +63,17 @@ class DynamicArray {
 
     private void setSize(int n) {
         if (array == null) {
-            this.array = new Integer[n];
+            // this.array = new T[n];
+            this.array = (T[]) Array.newInstance(this.clazz, n);
         } else {
-            Integer[] newArr = new Integer[n];
+            T[] newArr = (T[]) Array.newInstance(this.clazz, n);
+            // Integer[] newArr = new Integer[n];
             copyElements(this.array, newArr);
             this.array = newArr;
         }
     }
 
-    private void copyElements(Integer[] fromArray, Integer[] toArray) {
+    private void copyElements(T[] fromArray, T[] toArray) {
         for (int i = 0; i < fromArray.length; i++) {
             toArray[i] = fromArray[i];
         }
@@ -73,16 +82,16 @@ class DynamicArray {
     /*
      * getter
      */
-    public Integer[] getArray() {
+    public T[] getArray() {
         return this.array;
     }
 }
 
 public class DynamicArrayUse {
     public static void main(String[] args) {
-        DynamicArray d = new DynamicArray(5);
+        DynamicArray<Integer> d = new DynamicArray<>(Integer.class, 5);
 
-        for (int i = 0; i < 8; i++) {
+        for (Integer i = 0; i < 8; i++) {
             d.add(i + 10);
         }
 
