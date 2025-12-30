@@ -16,6 +16,11 @@ public class LinkedList<T> {
      * linked list operations
      */
 
+    public Node<T> add(T data) {
+        this.head = myUtils.insert(head, data);
+        return this.head;
+    }
+
     public Node<T> getNodeAtIndex(int index) {
         return myUtils.getNodeAtIndex(this.head, index);
     }
@@ -29,8 +34,8 @@ public class LinkedList<T> {
         return this.head;
     }
 
-    public Integer getLength() {
-        return myUtils.getLength(head);
+    public Integer size() {
+        return myUtils.size(head);
     }
 
     public Node<T> deleteNodeAtIndex(int index) {

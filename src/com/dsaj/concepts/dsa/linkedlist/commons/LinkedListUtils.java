@@ -43,6 +43,31 @@ public class LinkedListUtils<T> {
     }
 
     /**
+     * Inserts a new node containing the given data at the end of the linked list.
+     * If the linked list is empty, the new node is returned as the head of the linked list.
+     * 
+     * @param head the head of the linked list
+     * @param data the data to be inserted into the new node
+     * @return the head of the linked list
+     */
+    public Node<T> insert(Node<T> head, T data) {
+        Node<T> node = new Node<T>(data);
+
+        if (head == null) {
+            return node;
+        }
+
+        Node<T> iterator = head;
+
+        while (iterator.next() != null) {
+            iterator = iterator.next();
+        }
+
+        iterator.setNext(node);
+        return head;
+    }
+
+    /**
      * Builds a linked list from a given array.
      * 
      * @param array the given array
@@ -71,7 +96,7 @@ public class LinkedListUtils<T> {
      * @param head the head of the linked list
      * @return the length of the linked list
      */
-    public int getLength(Node<T> head) {
+    public int size(Node<T> head) {
         Node<T> node = head;
         int length = 0;
 
@@ -87,14 +112,14 @@ public class LinkedListUtils<T> {
      * Returns the node at a given index in the linked list.
      * 
      * @param head  the head of the linked list
-     * @param index  the index of the node to return
+     * @param index the index of the node to return
      * @return the node at the given index, or null if the index is out of bounds
      */
     public Node<T> getNodeAtIndex(Node<T> head, int index) {
         if (head == null)
             return null;
 
-        int length = getLength(head);
+        int length = size(head);
 
         if (index >= length)
             return null;
@@ -148,7 +173,7 @@ public class LinkedListUtils<T> {
     /**
      * Deletes the node at the specified index in the linked list.
      * 
-     * @param head the head of the linked list
+     * @param head  the head of the linked list
      * @param index the index of the node to delete
      * @return the head of the linked list (may be updated if deleting at index 0)
      */
@@ -167,10 +192,10 @@ public class LinkedListUtils<T> {
             node = node.next();
         }
 
-        if(node == null || node.next() == null) {
+        if (node == null || node.next() == null) {
             return head;
         }
-        
+
         node.setNext(node.next().next());
 
         return head;
