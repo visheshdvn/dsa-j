@@ -1,7 +1,5 @@
 package com.dsaj.concepts.dsa.basics.use;
 
-import com.dsaj.concepts.dsa.utils.Test;
-
 class Fraction {
     private int numerator;
     private int denominator;
@@ -31,8 +29,5 @@ class Fraction {
 public class FractionUse {
     public static void main(String[] args) {
         Fraction f1 = new Fraction(10, 15);
-        Test t = new Test();
-
-        System.out.println(f1.getNumerator() + t.testingVar);
     }
 }
