@@ -9,7 +9,7 @@ public class LinkedListUtils<T> {
      * 
      * @param head the head of the linked list
      */
-    public void printLL(Node<T> head) {
+    public static <T> void printLL(Node<T> head) {
         Node<T> node = head;
 
         while (node != null) {
@@ -25,7 +25,7 @@ public class LinkedListUtils<T> {
      * @param data the given list
      * @return the head of the linked list
      */
-    public Node<T> buildLLFromList(List<T> data) {
+    public static <T> Node<T> buildLLFromList(List<T> data) {
         if (data == null || data.size() == 0) {
             return null;
         }
@@ -44,13 +44,14 @@ public class LinkedListUtils<T> {
 
     /**
      * Inserts a new node containing the given data at the end of the linked list.
-     * If the linked list is empty, the new node is returned as the head of the linked list.
+     * If the linked list is empty, the new node is returned as the head of the
+     * linked list.
      * 
      * @param head the head of the linked list
      * @param data the data to be inserted into the new node
      * @return the head of the linked list
      */
-    public Node<T> insert(Node<T> head, T data) {
+    public static <T> Node<T> insert(Node<T> head, T data) {
         Node<T> node = new Node<T>(data);
 
         if (head == null) {
@@ -73,7 +74,7 @@ public class LinkedListUtils<T> {
      * @param array the given array
      * @return the head of the linked list
      */
-    public Node<T> buildLLFromArray(T[] array) {
+    public static <T> Node<T> buildLLFromArray(T[] array) {
         if (array == null || array.length == 0) {
             return null;
         }
@@ -96,7 +97,7 @@ public class LinkedListUtils<T> {
      * @param head the head of the linked list
      * @return the length of the linked list
      */
-    public int size(Node<T> head) {
+    public static <T> int size(Node<T> head) {
         Node<T> node = head;
         int length = 0;
 
@@ -115,7 +116,7 @@ public class LinkedListUtils<T> {
      * @param index the index of the node to return
      * @return the node at the given index, or null if the index is out of bounds
      */
-    public Node<T> getNodeAtIndex(Node<T> head, int index) {
+    public static <T> Node<T> getNodeAtIndex(Node<T> head, int index) {
         if (head == null)
             return null;
 
@@ -141,7 +142,7 @@ public class LinkedListUtils<T> {
      * @param index the index at which to insert the new node
      * @return the head of the linked list (may be updated if inserting at index 0)
      */
-    public Node<T> insert(Node<T> head, T data, int index) {
+    public static <T> Node<T> insert(Node<T> head, T data, int index) {
         if (index == 0) {
             Node<T> node = new Node<T>(data);
             node.setNext(head);
@@ -177,7 +178,7 @@ public class LinkedListUtils<T> {
      * @param index the index of the node to delete
      * @return the head of the linked list (may be updated if deleting at index 0)
      */
-    public Node<T> deleteNodeAtIndex(Node<T> head, int index) {
+    public static <T> Node<T> deleteNodeAtIndex(Node<T> head, int index) {
         if (head == null) {
             return head;
         }

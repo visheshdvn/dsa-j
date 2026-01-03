@@ -8,7 +8,6 @@ import com.dsaj.concepts.dsa.utils.SystemUtils;
 public class LinkedListUse {
 
     // utils contains functions to perform basic operations on LinkedList
-    private static final LinkedListUtils<Integer> utils = new LinkedListUtils<>();
     private static final LinkedList<Integer> ll = new LinkedList<>();
 
     private static void printNodeAtIndex() {
@@ -17,7 +16,7 @@ public class LinkedListUse {
         // both are valid ways to get a node at any index
         int index = SystemUtils.takeIntInput("Enter index: ");
         Node<Integer> node1 = ll.getNodeAtIndex(index);
-        Node<Integer> node2 = utils.getNodeAtIndex(head, index);
+        Node<Integer> node2 = LinkedListUtils.getNodeAtIndex(head, index);
 
         System.out.println("Both nodes are same : " + (node1 == node2));
         System.out.println("data : " + (node1 == null ? null : node1.getData()));
@@ -37,7 +36,7 @@ public class LinkedListUse {
 
         // both are valid ways to print the linked list
         ll.print();
-        utils.printLL(head);
+        LinkedListUtils.printLL(head);
 
         // printNodeAtIndex();
 
@@ -47,9 +46,9 @@ public class LinkedListUse {
 
         // calling utils.insert doesn't update the head pointer inside ll
         // we have to call the ll.setHead manually
-        head = utils.insert(head, 98, 0);
+        head = LinkedListUtils.insert(head, 98, 0);
         ll.setHead(head);
-        utils.printLL(head); // or ll.print()
+        LinkedListUtils.printLL(head); // or ll.print()
 
         deleteNodeAtIndex();
     }
