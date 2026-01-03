@@ -1,6 +1,6 @@
 package com.dsaj.concepts.dsa.stackandqueue.use;
 
-import com.dsaj.concepts.dsa.stackandqueue.QueuesUsingArray;
+import com.dsaj.concepts.dsa.stackandqueue.commons.QueuesUsingArray;
 import com.dsaj.concepts.dsa.utils.ArrayUtils;
 
 public class QueueUsingArrayUse {

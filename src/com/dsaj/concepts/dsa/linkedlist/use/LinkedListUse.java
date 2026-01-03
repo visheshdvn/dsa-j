@@ -1,4 +1,4 @@
-package com.dsaj.concepts.dsa.linkedlist;
+package com.dsaj.concepts.dsa.linkedlist.use;
 
 import com.dsaj.concepts.dsa.linkedlist.commons.LinkedList;
 import com.dsaj.concepts.dsa.linkedlist.commons.LinkedListUtils;

@@ -1,4 +1,4 @@
-package com.dsaj.concepts.dsa.stackandqueue;
+package com.dsaj.concepts.dsa.stackandqueue.commons;
 
 import java.lang.reflect.Array;
 

@@ -1,5 +1,6 @@
-package com.dsaj.concepts.dsa.basics.oops;
+package com.dsaj.concepts.dsa.basics.use;
 
+import com.dsaj.concepts.dsa.basics.oops.DynamicArray;
 import com.dsaj.concepts.dsa.utils.ArrayUtils;
 
 public class DynamicArrayUse {
