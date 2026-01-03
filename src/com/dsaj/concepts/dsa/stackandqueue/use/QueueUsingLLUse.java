@@ -3,7 +3,7 @@ package com.dsaj.concepts.dsa.stackandqueue.use;
 import com.dsaj.concepts.dsa.linkedlist.commons.LinkedListUtils;
 import com.dsaj.concepts.dsa.stackandqueue.QueueUsingLL;
 
-public class QueueusingLLUse {
+public class QueueUsingLLUse {
     // private final LinkedListUtils<Integer> llUtils = new LinkedListUtils<>();
 
     public static void main(String[] args) {
