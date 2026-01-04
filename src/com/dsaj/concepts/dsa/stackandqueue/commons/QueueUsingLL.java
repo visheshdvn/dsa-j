@@ -23,25 +23,8 @@ public class QueueUsingLL<T> {
 
         Node<T> head = queue.getHead();
         queue.setHead(head.getNext());
+        size--;
         return head.getData();
-        // if (this.size() == 1) {
-        //     queue.setHead(null);
-        //     return head.getData();
-        // } else {
-        //     Node<T> node = head;
-
-        //     while (node.next().next() != null) {
-        //         node = node.next();
-        //     }
-
-        //     Node<T> purging = node.next();
-        //     node.setNext(null);
-
-        //     T value = purging.getData();
-        //     purging = null;
-
-        //     return value;
-        // }
     }
 
     public int size() {
