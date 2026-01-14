@@ -12,6 +12,19 @@ public class SystemUtils {
         return num;
     }
 
+    public static int[] takeIntArrayInput(String message) {
+        int n = takeIntInput("Enter size of array: ");
+        int arr[] = new int[n];
+
+        ask(message);
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scan.nextInt();
+        }
+
+        return arr;
+    }
+
     public static Integer[] takeIntegerArrayInput(String message) {
         int n = takeIntInput("Enter size of array: ");
         Integer arr[] = new Integer[n];
