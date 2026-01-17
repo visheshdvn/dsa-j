@@ -9,8 +9,8 @@ The solution uses a _modified binary search_ to find the minimum element in a ro
 1. Initialize `front` (right pointer) to the last element and `rear` (left pointer) to the first element
 2. In each iteration:
    - Calculate the middle index
-   - If `nums[middle] <= nums[front]`: The minimum is in the left half (including middle), so update the minimum and move `front` left
-   - Else if `nums[middle] > nums[rear]`: The minimum is in the right half, so update minimum with `nums[rear]` and move `rear` right
+   - If `nums[middle] <= nums[front]`: Then right of middle is sorted. Update the minimum and ignore this side of array for next iteration.
+   - Else: The left of middle is sorted. Compare and store the min element from there and ignore the left half.
 3. Return the minimum element found
 
 **Key Insight 1:** By comparing the middle element with both boundaries, we can identify which half of the array contains the rotation point and thus the minimum value.

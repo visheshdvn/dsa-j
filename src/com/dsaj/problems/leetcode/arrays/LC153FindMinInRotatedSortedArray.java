@@ -15,7 +15,7 @@ class LC153Solution {
             if (nums[middle] <= nums[front]) {
                 minElement = Math.min(minElement, nums[middle]);
                 front = middle-1;
-            } else if(nums[middle] > nums[rear]) {
+            } else {
                 minElement = Math.min(minElement, nums[rear]);
                 rear = middle+1;
             }
