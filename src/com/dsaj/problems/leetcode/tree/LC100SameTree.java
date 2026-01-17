@@ -9,7 +9,7 @@ class LC100Solution {
             return true;
         }
 
-        if (p != null && q == null || q != null && p == null) {
+        if (p == null || q == null) {
             return false;
         }
 
