@@ -5,7 +5,7 @@ import com.dsaj.problems.leetcode.commons.BinaryTreeCommons.TreeNode;
 
 class LC100Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        if(p == null && q == null) {
+        if (p == null && q == null) {
             return true;
         }
 
@@ -13,14 +13,7 @@ class LC100Solution {
             return false;
         }
 
-        if (p.val != q.val) {
-            return false;
-        }
-
-        boolean isLeftSame = isSameTree(p.left, q.left);
-        boolean isRightSame = isSameTree(p.right, q.right);
-
-        return isLeftSame && isRightSame;
+        return (p.val == q.val) && isSameTree(p.left, q.left) && isSameTree(p.left, q.left);
     }
 }
 
