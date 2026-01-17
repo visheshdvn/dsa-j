@@ -86,7 +86,7 @@ cd /path/to/dsa-j
 **2. Compile the project (first time only):**
 
 ```bash
-javac -d bin src/com/dsaj/**/*.java
+javac -d bin src/**/*.java
 ```
 
 **3. Run the specific class:**
@@ -109,7 +109,7 @@ To recompile after making changes:
 ```bash
 # Clean and recompile
 rm -rf bin/*
-javac -d bin src/com/dsaj/**/*.java
+javac -d bin src/**/*.java
 
 # Run a specific class
 java -cp bin com.dsaj.problems.leetcode.arrays.LC153FindMinInRotatedSortedArray
@@ -120,7 +120,7 @@ java -cp bin com.dsaj.problems.leetcode.arrays.LC153FindMinInRotatedSortedArray
 ### Error: "package does not exist"
 
 - **Cause**: Dependencies not compiled
-- **Solution**: Ensure all files are compiled with `javac -d bin src/com/dsaj/**/*.java`
+- **Solution**: Ensure all files are compiled with `javac -d bin src/**/*.java`
 
 ### Error: "cannot find symbol"
 
@@ -136,9 +136,9 @@ java -cp bin com.dsaj.problems.leetcode.arrays.LC153FindMinInRotatedSortedArray
 
 | Task        | Command                                                                           |
 | ----------- | --------------------------------------------------------------------------------- |
-| Compile all | `javac -d bin src/com/dsaj/**/*.java`                                             |
+| Compile all | `javac -d bin src/**/*.java`                                                      |
 | Run a class | `java -cp bin com.dsaj.problems.leetcode.arrays.LC153FindMinInRotatedSortedArray` |
-| Clean build | `rm -rf bin/* && javac -d bin src/com/dsaj/**/*.java`                             |
+| Clean build | `rm -rf bin/* && javac -d bin src/**/*.java`                                      |
 
 ## Notes
 
