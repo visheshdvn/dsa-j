@@ -67,6 +67,70 @@ public class BinaryTreeCommons {
         }
 
         /**
+         * Inserts a node with the given data into a binary search tree.
+         * If the tree is empty, the node is inserted as the root.
+         * If the data is less than or equal to the node's data, the node is inserted
+         * into the left subtree. Otherwise, the node is inserted into the right
+         * subtree.
+         * 
+         * @param root the root of the binary search tree
+         * @param data the data to be inserted
+         * @return the root of the modified binary search tree
+         */
+
+        private static TreeNode insertInBST(TreeNode root, Integer data) {
+            if (root == null) {
+                root = new TreeNode(data);
+                return root;
+            }
+
+            TreeNode node = root;
+            while (true) {
+                if (data <= node.val) {
+                    if (node.left == null) {
+                        node.left = new TreeNode(data);
+                        break;
+                    } else {
+                        node = node.left;
+                    }
+                } else {
+                    if (node.right == null) {
+                        node.right = new TreeNode(data);
+                        break;
+                    } else {
+                        node = node.right;
+                    }
+                }
+            }
+
+            return root;
+        }
+
+        /**
+         * Builds a binary search tree from user input.
+         * The user is prompted to enter integers one by one, and each integer is
+         * inserted into the binary search tree.
+         * If the user enters -1, the loop is terminated.
+         * 
+         * @return the root of the binary search tree
+         */
+        public static TreeNode buildBinarySearchTree() {
+            TreeNode root = null;
+
+            while (true) {
+                Integer n = SystemUtils.takeIntInput("Enter number to insert: ");
+
+                if (n == -1) {
+                    break;
+                }
+
+                root = insertInBST(root, n);
+            }
+
+            return root;
+        }
+
+        /**
          * Prints the binary tree in level order.
          * 
          * @param root the root of the binary tree
