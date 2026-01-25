@@ -18,7 +18,9 @@ public class StackUsingLL<T> {
             throw new IllegalStateException("Stack is empty");
         }
 
-        return stack.deleteNodeAtIndex(stack.size() - 1).getData();
+        T item = this.peek();
+        stack.deleteNodeAtIndex(stack.size() - 1);
+        return item;
     }
 
     public T peek() {
@@ -27,6 +29,10 @@ public class StackUsingLL<T> {
         }
 
         return stack.getNodeAtIndex(stack.size() - 1).getData();
+    }
+
+    public int size() {
+        return stack.size();
     }
 
     public Boolean isEmpty() {
