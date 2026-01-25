@@ -77,7 +77,6 @@ public class BinaryTreeCommons {
          * @param data the data to be inserted
          * @return the root of the modified binary search tree
          */
-
         private static TreeNode insertInBST(TreeNode root, Integer data) {
             if (root == null) {
                 root = new TreeNode(data);
