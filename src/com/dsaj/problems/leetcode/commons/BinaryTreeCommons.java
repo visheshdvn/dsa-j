@@ -162,5 +162,21 @@ public class BinaryTreeCommons {
                 }
             }
         }
+
+        /**
+         * Prints the binary tree in an in-order traversal.
+         * 
+         * An in-order traversal visits the left subtree, the root, and then the right subtree.
+         * This method is used to print the binary tree in an in-order traversal.
+         * 
+         * @param root the root of the binary tree
+         */
+        public static void printInorderTraversalOfTree(TreeNode root) {
+            if (root == null) return;
+
+            printInorderTraversalOfTree(root.left);
+            System.out.print(root.val + " | ");
+            printInorderTraversalOfTree(root.right);
+        }
     }
 }
