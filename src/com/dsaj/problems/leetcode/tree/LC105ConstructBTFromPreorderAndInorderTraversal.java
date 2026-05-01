@@ -1,43 +1,44 @@
 package com.dsaj.problems.leetcode.tree;
 
-import java.util.stream.IntStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.dsaj.problems.leetcode.commons.BinaryTreeCommons.BinaryTreeUtils;
 import com.dsaj.problems.leetcode.commons.BinaryTreeCommons.TreeNode;
 
+/**
+ * Intuition and Thought Process for Constructing Binary Tree:
+ * 
+ * 1. Role of Preorder: The preorder array serves as the "root finder." The very first 
+ *    element of any given preorder segment is guaranteed to be the root of that subtree.
+ * 
+ * 2. Role of Inorder: The inorder array acts as the "divider." Once the root is identified, 
+ *    its position in the inorder array naturally splits the remaining elements into left 
+ *    and right subtrees.
+ * 
+ * 3. O(1) Lookup Optimization: A HashMap (inMap) pre-processes the inorder array, mapping 
+ *    values to their indices. This eliminates the O(N) linear search overhead during 
+ *    recursion, maintaining an optimal O(N) time complexity.
+ * 
+ * 4. Defining Inorder Boundaries: The root's index (indexOfRoot) perfectly divides the 
+ *    inorder boundaries. The left inorder segment spans from the current start to just before 
+ *    the root, while the right segment spans from just after the root to the current end.
+ * 
+ * 5. Calculating Left Preorder Boundaries: The left preorder segment always begins 
+ *    immediately after the current root (pStart + 1). Its end boundary is calculated by 
+ *    matching the exact length of the left inorder segment (leftInE - leftInS).
+ * 
+ * 6. Calculating Right Preorder Boundaries: The right preorder segment logically follows 
+ *    the left one. It begins immediately after the left preorder segment terminates 
+ *    (leftPreE + 1) and naturally continues to the end of the current preorder bound (pEnd).
+ * 
+ * 7. Recursive Construction: By explicitly calculating these specific start and end indices 
+ *    for both arrays, the tree is built by passing these precise boundaries down to 
+ *    recursively construct the left and right children.
+ */
+
 class LC105Solution {
-    public int findIndex(int[] arr, int elem, int low, int high)
-    {
-        int idx = IntStream.range(low, high+1)
-            .filter(i -> elem == arr[i])
-            .findFirst()
-            .orElse(-1);
-        
-        return idx;
-    }
-
-    public TreeNode buildTreehelper(int[] pre, int[] in, int pStart, int pEnd, int iStart, int iEnd)
-    {
-        if(iStart == iEnd) {
-            return new TreeNode(in[iStart]);
-        }
-
-        int indexOfRoot = findIndex(in, pre[pStart], iStart, iEnd);
-        System.out.println("index of " + pre[pStart] + " : " + indexOfRoot);
-
-
-        TreeNode leftChild = null, rightChild = null;
-        if(indexOfRoot != iStart) {
-            leftChild = buildTreehelper(pre, in, pStart+1, pEnd+indexOfRoot, iStart, Math.max(iStart, indexOfRoot-1));
-        }
-
-        if(indexOfRoot != iEnd) {
-            rightChild = buildTreehelper(pre, in, pStart+indexOfRoot+1, pEnd, Math.min(indexOfRoot+1, iEnd), iEnd);
-        }
-
-
-        return new TreeNode(pre[0], leftChild, rightChild);
-    }
+    private Map<Integer, Integer> inMap = new HashMap<>();
 
     public TreeNode buildTreehelperNew(int[] pre, int[] in, int pStart, int pEnd, int iStart, int iEnd)
     {
@@ -47,7 +48,8 @@ class LC105Solution {
 
         int rootData = pre[pStart];
         
-        int indexOfRoot = findIndex(in, rootData, iStart, iEnd);
+        // int indexOfRoot = findIndex(in, rootData, iStart, iEnd);
+        int indexOfRoot = inMap.get(rootData);
         if(indexOfRoot == -1) {
             return null;
         }
