@@ -38,6 +38,12 @@ public class SystemUtils {
         return arr;
     }
 
+    public static String takeStringInput(String message) {
+        ask(message);
+        String str = scan.nextLine();
+        return str;
+    }
+
     private static void ask(String message) {
         if (message != null && !message.isEmpty()) {
             System.out.print(message);

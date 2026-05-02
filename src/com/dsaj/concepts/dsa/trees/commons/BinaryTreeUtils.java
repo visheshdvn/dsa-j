@@ -136,8 +136,9 @@ public class BinaryTreeUtils<T> {
      * If the node is null, nothing is printed.
      *
      * @param root the root of the binary tree
-     * @deprecated
+     * @deprecated - use printTreeInLevelOrder() instead, because this method use more RAM than iterative one, and also it is not good for large trees as it may cause stack overflow due to deep recursion.
      */
+    @Deprecated
     public static <T> void printTree(BinaryTreeNode<T> root) {
         if (root == null) {
             return;
@@ -146,6 +147,7 @@ public class BinaryTreeUtils<T> {
         T leftData = root.leftChild() != null ? root.leftChild().getData() : null;
         T rightData = root.rightChild() != null ? root.rightChild().getData() : null;
         System.out.println(root.getData() + " | L " + leftData + ", R " + rightData);
+        
         printTree(root.leftChild());
         printTree(root.rightChild());
     }
@@ -193,6 +195,7 @@ public class BinaryTreeUtils<T> {
      * @return the number of nodes in the binary tree
      * @deprecated because this method use more RAM than iterative one
      */
+    @Deprecated
     public static <T> Integer countNumberOfNodesRecursive(BinaryTreeNode<T> root) {
         if (root == null) {
             return 0;
