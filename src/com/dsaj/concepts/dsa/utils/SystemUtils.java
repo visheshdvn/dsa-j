@@ -8,6 +8,7 @@ public class SystemUtils {
     public static int takeIntInput(String message) {
         ask(message);
         int num = scan.nextInt();
+        scan.nextLine(); // consume trailing newline left by nextInt()
 
         return num;
     }
@@ -20,6 +21,19 @@ public class SystemUtils {
 
         for (int i = 0; i < n; i++) {
             arr[i] = scan.nextInt();
+        }
+
+        return arr;
+    }
+
+    public static String[] takeStringArrayInput(String message) {
+        int n = takeIntInput("Enter size of array: ");
+        String arr[] = new String[n];
+
+        ask(message);
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scan.nextLine();
         }
 
         return arr;
