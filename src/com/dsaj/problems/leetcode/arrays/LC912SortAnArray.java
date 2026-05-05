@@ -1,5 +1,8 @@
 package com.dsaj.problems.leetcode.arrays;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.dsaj.concepts.dsa.utils.ArrayUtils;
 import com.dsaj.concepts.dsa.utils.SystemUtils;
 
@@ -52,6 +55,40 @@ class LC912Solution {
     public int[] sortArray(int[] nums) {
         mergeSort(nums, 0, nums.length - 1);
         return nums;
+    }
+}
+
+
+/*
+    Counting Sort
+ */
+class LC912SolutionAlternative {
+
+    public int[] sortArray(int[] nums) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < nums.length; i++) {
+            int n = nums[i];
+
+            countMap.put(n, countMap.getOrDefault(n, 0)+1);
+            min = Math.min(min, n);
+            max = Math.max(max, n);
+        }
+
+        int[] sortedArray = new int[nums.length];
+        int i = 0;
+
+        for (int n = min; n <= max; n++) {
+            int count = countMap.getOrDefault(n, 0);
+
+            for (int j = 0; j < count; j++) {
+                sortedArray[i++] = n;
+            }
+        }
+
+        return sortedArray;
     }
 }
 
