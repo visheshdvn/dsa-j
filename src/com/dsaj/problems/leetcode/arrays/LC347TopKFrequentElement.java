@@ -32,6 +32,8 @@ class LC347Solution {
         for (int i = buckets.length-1; i >= 0 && added < k; i--) {
             if(buckets[i] == null) continue;
 
+            // it works here bec it is given in the constraints that-
+            // "It is guaranteed that the answer is unique."
             for (Integer num: buckets[i]) {
                 res[added++] = num;
             }

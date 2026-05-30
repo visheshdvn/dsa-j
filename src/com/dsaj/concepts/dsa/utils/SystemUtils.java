@@ -26,6 +26,18 @@ public class SystemUtils {
         return arr;
     }
 
+    public static int[] takeIntArrayInputofSize(String message, int n) {
+        int arr[] = new int[n];
+
+        ask(message);
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scan.nextInt();
+        }
+
+        return arr;
+    }
+
     public static String[] takeStringArrayInput(String message) {
         int n = takeIntInput("Enter size of array: ");
         String arr[] = new String[n];
