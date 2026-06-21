@@ -1,7 +1,6 @@
 package com.dsaj.concepts.dsa.dp;
 
 import java.util.Random;
-import java.util.Scanner;
 
 import com.dsaj.concepts.dsa.utils.SystemUtils;
 
