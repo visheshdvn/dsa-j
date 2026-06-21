@@ -64,6 +64,18 @@ public class SystemUtils {
         return arr;
     }
 
+    public static Integer[] takeIntegerArrayInputOfSize(String message, int n) {
+        Integer arr[] = new Integer[n];
+
+        ask(message);
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scan.nextInt();
+        }
+
+        return arr;
+    }
+
     public static String takeStringInput(String message) {
         ask(message);
         String str = scan.nextLine();
