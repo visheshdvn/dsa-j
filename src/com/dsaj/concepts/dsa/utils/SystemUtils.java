@@ -51,6 +51,31 @@ public class SystemUtils {
         return arr;
     }
 
+    public static char[] takeCharArrayInput(String message) {
+        int n = takeIntInput("Enter size of array: ");
+        char arr[] = new char[n];
+
+        ask(message);
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scan.next().charAt(0);
+        }
+
+        return arr;
+    }
+
+    public static char[] takeCharArrayInputOfSize(String message, int n) {
+        char arr[] = new char[n];
+
+        ask(message);
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scan.next().charAt(0);
+        }
+
+        return arr;
+    }
+
     public static Integer[] takeIntegerArrayInput(String message) {
         int n = takeIntInput("Enter size of array: ");
         Integer arr[] = new Integer[n];
