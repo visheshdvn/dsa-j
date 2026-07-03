@@ -43,25 +43,24 @@ class LC70ClimbingStairsMemoizationSolution implements LC70ClimbingStairsSolutio
  * Builds a DP table from the base cases up to {@code n}, computing each value iteratively.
  * </p>
  */
-class InnerLC70ClimbingStairsTabulationSolution implements LC70ClimbingStairsSolution {
+class LC70ClimbingStairsTabulationSolution implements LC70ClimbingStairsSolution {
     public int climbStairs(int n) {
-        if(n < 2) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n < 2) {
             return 1;
         }
-        if(n == 2) {
-            return 2;
+
+        int[] ways = new int[n + 1];
+        ways[0] = 1;
+        ways[1] = 1;
+
+        for (int i = 2; i <= n; i++) {
+            ways[i] = ways[i - 1] + ways[i - 2];
         }
 
-        int[] steps = new int[n+1];
-        steps[0] = 0;
-        steps[1] = 1;
-        steps[2] = 2;
-
-        for (int i = 3; i < steps.length; i++) {
-            steps[i] = steps[i - 1] + steps[i - 2];
-        }
-
-        return steps[n];
+        return ways[n];
     }
 }
 
@@ -72,7 +71,7 @@ class InnerLC70ClimbingStairsTabulationSolution implements LC70ClimbingStairsSol
  * only depends on the previous two stair counts.
  * </p>
  */
-class InnerLC70ClimbingStairsTabulationMemoryOptimizedSolution implements LC70ClimbingStairsSolution {
+class LC70ClimbingStairsTabulationMemoryOptimizedSolution implements LC70ClimbingStairsSolution {
     public int climbStairs(int n) {
         if (n < 2) {
             return 1;
@@ -98,28 +97,16 @@ public class LC70ClimbingStairs {
         long endTime = System.currentTimeMillis();
         System.out.println("Time taken: " + (endTime - startTime) + " ms");
 
-        LC70ClimbingStairsSolution solution2 = new InnerLC70ClimbingStairsTabulationSolution();
+        LC70ClimbingStairsSolution solution2 = new LC70ClimbingStairsTabulationSolution();
         startTime = System.currentTimeMillis();
         System.out.println("Number of ways to climb " + n + " stairs: " + solution2.climbStairs(n));
         endTime = System.currentTimeMillis();
         System.out.println("Time taken: " + (endTime - startTime) + " ms");
 
-        LC70ClimbingStairsSolution solution3 = new InnerLC70ClimbingStairsTabulationMemoryOptimizedSolution();
+        LC70ClimbingStairsSolution solution3 = new LC70ClimbingStairsTabulationMemoryOptimizedSolution();
         startTime = System.currentTimeMillis();
         System.out.println("Number of ways to climb " + n + " stairs: " + solution3.climbStairs(n));
         endTime = System.currentTimeMillis();
         System.out.println("Time taken: " + (endTime - startTime) + " ms");
     }
 }
-
-// for 1 -> 1 way
-// 1
-
-// for 2 -> 2 ways
-// 1+1
-// 2
-
-// for 3 -> 3 ways
-// 1+1+1
-// 1+2
-// 2+1
