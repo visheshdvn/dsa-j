@@ -4,8 +4,7 @@ import java.util.PriorityQueue;
 
 import com.dsaj.concepts.dsa.utils.SystemUtils;
 
-class LC973KClosestointsToOriginSolution {
-    class Coordinate {
+class Coordinate {
         int[] points;
         double distanceToOrigin;
 
@@ -13,8 +12,38 @@ class LC973KClosestointsToOriginSolution {
             this.points = points;
             this.distanceToOrigin = distanceToOrigin;
         }
-    }
+}
 
+class LC973KClosestPointsToOriginUsingMaxHeapSolution {
+    public int[][] kClosest(int[][] points, int k) {
+        PriorityQueue<Coordinate> maxHeap = new PriorityQueue<>(
+            (a, b) -> Double.compare(b.distanceToOrigin, a.distanceToOrigin)
+        );
+
+        for (int[] point : points) {
+            double distanceToOrigin = point[0]*point[0]+point[1]*point[1];
+
+            if(maxHeap.size() < k) {
+                Coordinate coordinate = new Coordinate(point, distanceToOrigin);
+                maxHeap.offer(coordinate);
+            } else if(distanceToOrigin < maxHeap.peek().distanceToOrigin) {
+                Coordinate coordinate = new Coordinate(point, distanceToOrigin);
+                maxHeap.poll();
+                maxHeap.offer(coordinate);
+            }
+        }
+
+        int[][] closestOnes = new int[k][2];
+        for (int i = 0; i < k; i++) {
+            Coordinate coordinate = maxHeap.poll();
+            closestOnes[i] = coordinate.points;
+        }
+
+        return closestOnes;
+    }
+}
+
+class LC973KClosestPointsToOriginUsingMinHeapSolution {
     public int[][] kClosest(int[][] points, int k) {
         PriorityQueue<Coordinate> maxHeap = new PriorityQueue<>(
             (a, b) -> Double.compare(a.distanceToOrigin, b.distanceToOrigin)
@@ -37,9 +66,9 @@ class LC973KClosestointsToOriginSolution {
     }
 }
 
-public class LC973KClosestointsToOrigin {
+public class LC973KClosestPointsToOrigin {
     public static void main(String[] args) {
-        LC973KClosestointsToOriginSolution solution = new LC973KClosestointsToOriginSolution();
+        LC973KClosestPointsToOriginUsingMinHeapSolution solution = new LC973KClosestPointsToOriginUsingMinHeapSolution();
 
         int nPoints = SystemUtils.takeIntInput("Enter number of points: ");
 
