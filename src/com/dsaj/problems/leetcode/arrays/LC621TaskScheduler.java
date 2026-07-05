@@ -47,15 +47,18 @@ class LC621TaskSchedulerPriorityQueueSolution {
 
 class LC621TaskSchedulerPriorityQueueOptimizedSolution {
     public int leastInterval(char[] tasks, int n) {
-        Map<Character, Integer> charFrequency = new LinkedHashMap<>();
-        for (char c : tasks) {
-            charFrequency.put(c, charFrequency.getOrDefault(c, 0) + 1);
+        // build a frequency map for the tasks
+        int[] freq = new int[26];
+        for (char ch : tasks) {
+            freq[ch - 'A']++;
         }
 
         PriorityQueue<Integer> frequencies = new PriorityQueue<>(Comparator.reverseOrder());
 
-        for (Integer frequency : charFrequency.values()) {
-            frequencies.offer(frequency);
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] > 0) {
+                frequencies.offer(freq[i]);
+            }
         }
 
         int time = 0;
