@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import com.dsaj.concepts.dsa.utils.ArrayUtils;
 import com.dsaj.concepts.dsa.utils.SystemUtils;
@@ -36,12 +35,6 @@ class LC15ThreeSumSolutionNaive {
 }
 
 class LC15ThreeSumSolution {
-    // private List<Integer> removeDuplicates(int[] nums) {
-    //     Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
-
-    //     return new ArrayList<>(set);
-    // }
-
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
