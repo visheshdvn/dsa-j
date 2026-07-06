@@ -1,4 +1,4 @@
-package com.dsaj.problems.leetcode.priorityqueue;
+package com.dsaj.problems.leetcode.tree;
 
 import com.dsaj.concepts.dsa.utils.SystemUtils;
 import com.dsaj.problems.leetcode.commons.BinaryTreeCommons.BinaryTreeUtils;
