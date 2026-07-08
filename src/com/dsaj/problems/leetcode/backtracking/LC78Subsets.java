@@ -1,4 +1,4 @@
-package com.dsaj.problems.leetcode.arrays;
+package com.dsaj.problems.leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
