@@ -8,27 +8,28 @@ import com.dsaj.concepts.dsa.utils.ArrayUtils;
 import com.dsaj.concepts.dsa.utils.SystemUtils;
 
 class LC90Subsets2Solution {
-    List<List<Integer>> result = new ArrayList<>();
+    private void backtrack(int[] nums, int start, List<Integer> path, List<List<Integer>> result) {
+        result.add(new ArrayList<>(path));
 
-    private void subsetsHelper(int[] nums, List<Integer> currentSet, int start) {
-        result.add(new ArrayList<>(currentSet));
-
-        int i = start;
-        while (i < nums.length) {
-            currentSet.add(nums[i]);
-            subsetsHelper(nums, currentSet, i+1);
-            currentSet.removeLast();
-
-            while (i < nums.length-1 && nums[i+1] == nums[i]) {
-                i++;
+        for (int i = start; i < nums.length; i++) {
+            if (i > start && nums[i] == nums[i - 1]) {
+                continue;
             }
-            i++;
+
+            path.add(nums[i]);
+            backtrack(nums, i + 1, path, result);
+            path.remove(path.size() - 1);
         }
     }
 
     public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+
         Arrays.sort(nums);
-        subsetsHelper(nums, new ArrayList<>(), 0);
+        backtrack(nums, 0, new ArrayList<>(), result);
         return result;
     }
 }
