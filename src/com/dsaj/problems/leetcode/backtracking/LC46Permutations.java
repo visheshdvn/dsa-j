@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.dsaj.concepts.dsa.utils.SystemUtils;
 
+
+// This is Backtracking solution
 class LC46PermutationsRecursiveSolution {
 
     List<List<Integer>> permutations = new ArrayList<>();
