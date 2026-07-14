@@ -57,6 +57,59 @@ class LC79WordSearchSolution {
     }
 }
 
+class LC79WordSearchAltSolution {
+    private final int[][] directions = {
+            {0, 1},
+            {1, 0},
+            {0, -1},
+            {-1, 0}
+    };
+
+    public boolean exist(char[][] board, String word) {
+        if (board == null || board.length == 0 || board[0].length == 0 || word == null) {
+            return false;
+        }
+
+        if (word.isEmpty()) {
+            return true;
+        }
+
+        char[] chars = word.toCharArray();
+        boolean[][] visited = new boolean[board.length][board[0].length];
+
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[0].length; col++) {
+                if (board[row][col] == chars[0] && backtrack(board, chars, row, col, 0, visited)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean backtrack(char[][] board, char[] word, int row, int col, int index, boolean[][] visited) {
+        if (index == word.length) {
+            return true;
+        }
+
+        if (row < 0 || row >= board.length || col < 0 || col >= board[0].length || visited[row][col] || board[row][col] != word[index]) {
+            return false;
+        }
+
+        visited[row][col] = true;
+
+        for (int[] direction : directions) {
+            if (backtrack(board, word, row + direction[0], col + direction[1], index + 1, visited)) {
+                return true;
+            }
+        }
+
+        visited[row][col] = false;
+        return false;
+    }
+}
+
 public class LC79WordSearch {
     public static void main(String[] args) {
         LC79WordSearchSolution solution = new LC79WordSearchSolution();
