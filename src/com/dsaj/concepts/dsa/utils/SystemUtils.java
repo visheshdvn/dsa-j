@@ -72,6 +72,7 @@ public class SystemUtils {
         for (int i = 0; i < n; i++) {
             arr[i] = scan.next().charAt(0);
         }
+        scan.nextLine();
 
         return arr;
     }
