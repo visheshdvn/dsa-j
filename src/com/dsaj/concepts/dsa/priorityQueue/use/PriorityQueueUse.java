@@ -1,6 +1,6 @@
 package com.dsaj.concepts.dsa.priorityQueue.use;
 
-import com.dsaj.concepts.dsa.priorityQueue.commons.PriorityQueue;s
+import com.dsaj.concepts.dsa.priorityQueue.commons.PriorityQueue;
 
 public class PriorityQueueUse {
     public static void main(String[] args) {
