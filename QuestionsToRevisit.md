@@ -7,3 +7,8 @@ LC238 - Product of Arrays excepts self
 ## Trees
 
 LC98 - Validate BST
+
+
+## Linked List
+
+LC287

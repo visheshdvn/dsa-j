@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class SystemUtils {
     final static Scanner scan = new Scanner(System.in);
 
+    /*
+    int methods
+     */
     public static int takeIntInput(String message) {
         ask(message);
         int num = scan.nextInt();
@@ -38,19 +41,9 @@ public class SystemUtils {
         return arr;
     }
 
-    public static String[] takeStringArrayInput(String message) {
-        int n = takeIntInput("Enter size of array: ");
-        String arr[] = new String[n];
-
-        ask(message);
-
-        for (int i = 0; i < n; i++) {
-            arr[i] = scan.nextLine();
-        }
-
-        return arr;
-    }
-
+    /*
+    char methods
+     */
     public static char[] takeCharArrayInput(String message) {
         int n = takeIntInput("Enter size of array: ");
         char arr[] = new char[n];
@@ -77,6 +70,9 @@ public class SystemUtils {
         return arr;
     }
 
+    /*
+    Integer methods
+     */
     public static Integer[] takeIntegerArrayInput(String message) {
         int n = takeIntInput("Enter size of array: ");
         Integer arr[] = new Integer[n];
@@ -102,10 +98,26 @@ public class SystemUtils {
         return arr;
     }
 
+    /*
+    String methods
+     */
     public static String takeStringInput(String message) {
         ask(message);
         String str = scan.nextLine();
         return str;
+    }
+
+    public static String[] takeStringArrayInput(String message) {
+        int n = takeIntInput("Enter size of array: ");
+        String arr[] = new String[n];
+
+        ask(message);
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scan.nextLine();
+        }
+
+        return arr;
     }
 
     private static void ask(String message) {
