@@ -1,4 +1,4 @@
-package com.dsaj.problems.leetcode.arrays;
+package com.dsaj.problems.leetcode.binarysearch;
 
 import com.dsaj.concepts.dsa.utils.SystemUtils;
 
