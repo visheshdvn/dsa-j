@@ -41,6 +41,14 @@ public class SystemUtils {
         return arr;
     }
 
+    public static double takeDoubleInput(String message) {
+        ask(message);
+        double num = scan.nextDouble();
+        scan.nextLine(); // consume trailing newline left by nextDouble()
+
+        return num;
+    }
+
     /*
     char methods
      */
