@@ -16,16 +16,6 @@ class LC131PalindromeStringSolution {
         return start > end;
     }
 
-    public String toString(char[] s, int start, int end) {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = start; i <= end; i++) {
-            sb.append(s[i]);
-        }
-
-        return sb.toString();
-    }
-
     private void backtrack(String s, int start, List<String> currentList, List<List<String>> result) {
         if (start >= s.length()) {
             result.add(new ArrayList<>(currentList));
@@ -60,8 +50,5 @@ public class LC131PalindromeString {
         for (List<String> list : partitions) {
             ArrayUtils.printList(list);
         }
-
-        // System.out.println("" + solution.isPalindrome(str.toCharArray(), 0,
-        // str.length()-1));
     }
 }
